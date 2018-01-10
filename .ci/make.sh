@@ -13,6 +13,6 @@ bash -x gh-torrent/.ci/templates/torrent.template
 ls gh-torrent/.ci/templates/
 ls $WORKDIR
 
-head torrent.yml || true
+grep image torrent.yml
 
-cp torrent.yml output/ || true
+cp torrent.yml output/
