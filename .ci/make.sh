@@ -7,9 +7,12 @@ echo "tag: $(cat gh-release-torrent/tag)"
 
 export DOCKER_VERSION=$(cat gh-release-torrent/tag)
 
+echo "docker version: $DOCKER_VERSION"
+
 bash -x gh-torrent/.ci/templates/torrent.template
 ls gh-torrent/.ci/templates/
+ls $WORKDIR
 
-head gh-torrent/.ci/templates/torrent.yml || true
+head torrent.yml || true
 
-cp gh-torrent/.ci/templates/torrent.yml output/ || true
+cp torrent.yml output/ || true
