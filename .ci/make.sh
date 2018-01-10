@@ -7,8 +7,9 @@ echo "tag: $(cat gh-release-torrent/tag)"
 
 export DOCKER_VERSION=$(cat gh-release-torrent/tag)
 
-bash gh-torrent/.ci/templates/torrent.template
+bash -x gh-torrent/.ci/templates/torrent.template
+ls gh-torrent/.ci/templates/
 
-head gh-torrent/.ci/templates/torrent.yml
+head gh-torrent/.ci/templates/torrent.yml || true
 
-cp gh-torrent/.ci/templates/torrent.yml output/
+cp gh-torrent/.ci/templates/torrent.yml output/ || true
