@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cat << torrent.yml > EOF
+cat << EOF > torrent.yml
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
