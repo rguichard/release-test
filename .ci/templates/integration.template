@@ -18,10 +18,9 @@ spec:
         app: integration
     spec:
       containers:
-        image: rguichard/release-integration:$DOCKER_VERSION
-        name: integration
-        imagePullPolicy: Always
-      restartPolicy: Always
+        - name: integration
+          image: rguichard/release-integration:$DOCKER_VERSION
+          imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service
