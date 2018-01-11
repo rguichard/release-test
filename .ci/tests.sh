@@ -1,8 +1,6 @@
 #!/bin/bash
 WORKDIR=$(pwd)
-echo "gh-torrrent: $(ls -l gh-torrent)"
-echo "root: $(ls -l /)"
-echo "pwd: $(ls -l $WORKDIR)"
 
-
-uname -a
+curl https://$TEST_URL
+[ $? -ne 0 ] && echo "BAD URL" && exit 1
+echo "ALL GOOD"
