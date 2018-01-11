@@ -8,10 +8,9 @@ image_resource:
     repository: ubuntu
     tag: 16.04
 inputs:
-  - name: gh-torrent
-  - name: gh-release-torrent
+  - name: gh-integration
   - name: manifests-release
 outputs:
   - name: output
 run:
-  path: gh-torrent/.ci/tests.sh
+  path: gh-integration/.ci/tests.sh
