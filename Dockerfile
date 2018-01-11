@@ -1,3 +1,2 @@
-FROM alpine:latest
-RUN mkdir hello
-RUN mkdir ehlo
+FROM dockercloud/hello-world
+ADD index.php /www/index.php

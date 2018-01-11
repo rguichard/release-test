@@ -1,0 +1,55 @@
+#!/bin/bash
+
+cat << EOF > integration.yml
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: default
+  name: integration
+  labels:
+    app: integration
+spec:
+  replicas: 1
+  template:
+    metadata:
+      namespace: default
+      labels:
+        app: integration
+    spec:
+      containers:
+        image: rguichard/release-integration:$DOCKER_VERSION
+        name: integration
+        imagePullPolicy: Always
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: default
+  name: integration-svc
+spec:
+  ports:
+  - name: admin
+    port: 80
+    protocol: TCP
+  selector:
+    app: integration
+  type: ClusterIP
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: default
+  name: integration
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+    - host: integration.rguichard.fr
+      http:
+        paths:
+          - backend:
+              serviceName: integration-svc
+              servicePort: 80
+EOF

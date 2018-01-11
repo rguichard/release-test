@@ -1,0 +1,16 @@
+---
+
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: ubuntu
+    tag: 16.04
+inputs:
+  - name: gh-integration
+  - name: gh-release-integration
+outputs:
+  - name: output
+run:
+  path: gh-integration/.ci/generate-manifest.sh
