@@ -9,7 +9,7 @@ image_resource:
     tag: 16.04
 inputs:
   - name: gh-integration
-  - name: gh-release-integration
+  - name: integration-version
 outputs:
   - name: output
 run:
