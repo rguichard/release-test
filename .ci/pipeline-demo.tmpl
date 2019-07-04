@@ -27,7 +27,7 @@ jobs:
     plan:
       - get: git-demo
         trigger: true
-			- task: Update version
+      - task: Update version
         file: git-demo/.ci/update-version.yml
       - put: docker-demo
         params:
