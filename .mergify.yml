@@ -1,0 +1,15 @@
+pull_request_rules:
+  - name: Automatic merge on approval
+    conditions:
+      - "#approved-reviews-by>=1"
+      - -label=wip
+    actions:
+      merge:
+        method: merge
+  - name: Automatic merge on "lgtm"
+    conditions:
+      - label=lgtm
+      - -label=wip
+    actions:
+      merge:
+        method: merge
