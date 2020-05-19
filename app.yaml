@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: integration
-          image: osones/helloworld
+          image: osones/helloworld:v1
           imagePullPolicy: Always
 ---
 apiVersion: v1
